@@ -3,6 +3,7 @@ package com.ratz.todo.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.hibernate.boot.SchemaAutoTooling;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,4 +47,15 @@ public class TodoService {
 	public void deleteTodo(Integer id) {
 		todoRepository.deleteById(id);
 		}
+
+	public Todo updateTodo(Integer id, Todo obj) {
+		Todo todo = findById(id);
+		todo.setTitle(obj.getTitle());
+		todo.setDateToFinish(obj.getDateToFinish());
+		todo.setDescription(obj.getDescription());
+		todo.setFinished(obj.getFinished());
+		
+		return todoRepository.save(todo);
+		
+	}
 }

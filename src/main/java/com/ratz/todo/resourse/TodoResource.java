@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -74,6 +75,13 @@ public class TodoResource {
 		
 		todoservice.deleteTodo(id);
 		return ResponseEntity.noContent().build();
+	}
+	
+	@PutMapping(value="/{id}")
+	public ResponseEntity<Todo> updateTodo(@PathVariable Integer id, @RequestBody Todo obj) {
+		
+		Todo newObj = todoservice.updateTodo(id,obj);
+		return ResponseEntity.ok().body(newObj);
 	}
 	
 }
