@@ -35,4 +35,13 @@ public class TodoService {
 		List<Todo> list = todoRepository.findAll();
 		return list;
 	}
+
+	public Todo create(Todo obj) {
+		obj.setId(null);
+		return todoRepository.save(obj);
+	}
+
+	public void deleteTodo(Integer id) {
+		todoRepository.deleteById(id);
+		}
 }

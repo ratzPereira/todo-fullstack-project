@@ -1,13 +1,18 @@
 package com.ratz.todo.resourse;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.ratz.todo.domain.Todo;
 import com.ratz.todo.services.TodoService;
@@ -43,14 +48,33 @@ public class TodoResource {
 				
 	}
 	
-	@GetMapping(value = "/all")
+	@GetMapping
 	public ResponseEntity<List<Todo>> listAllTodos() {
 		
 		List<Todo> list = todoservice.findAllTodos();
 		return ResponseEntity.ok().body(list);
 	}
+	
+	@PostMapping
+	public ResponseEntity<Todo> create(@RequestBody  Todo obj) {
+		obj = todoservice.create(obj);
+		
+		//for good practice we return the URI of this request
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+		
+		return ResponseEntity.created(uri).build();
+		
+		//if we want to send the obj created we can return like this.
+		//return ResponseEntity.created(uri).body(obj);
+		
+	}
+	
+	@DeleteMapping(value="/{id}")
+	public ResponseEntity<Void> deleteTodo(@PathVariable Integer id) {
+		
+		todoservice.deleteTodo(id);
+		return ResponseEntity.noContent().build();
+	}
+	
 }
 
-
-//localhost:8080/todos
-//localhost:8080/todos/1
