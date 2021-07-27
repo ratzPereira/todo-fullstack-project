@@ -3,7 +3,7 @@
 
         <mat-form-field class="date-finish" appearance="fill">
             <mat-label>Choose date to finish</mat-label>
-            <input matInput [matDatepicker]="dp3" disabled>
+            <input [(ngModel)]="todo.dateToFinish" name="todo.dateToFinish" matInput [matDatepicker]="dp3" disabled>
             <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
             <mat-datepicker #dp3 disabled="false"></mat-datepicker>
         </mat-form-field>
@@ -12,19 +12,19 @@
 
         <mat-form-field class="form" appearance="fill">
             <mat-label>Title</mat-label>
-            <input matInput placeholder="Ex. Study all night">
+            <input [(ngModel)]="todo.title" name="todo.title" matInput placeholder="Ex. Study all night">
         </mat-form-field>
 
         <mat-form-field class="form" appearance="fill">
             <mat-label>Description</mat-label>
-            <input matInput placeholder="Ex. Study all programming languages">
+            <input [(ngModel)]="todo.description" name="todo.description" matInput placeholder="Ex. Study all programming languages">
         </mat-form-field>
 
     </div>
 
     <div class="buttons">
         <button mat-stroked-button color="warn" (click)="cancelButtonHandler()">Back</button>
-        <button mat-stroked-button color="primary">Create</button>
+        <button mat-stroked-button color="primary" (click)="createTodoHandler()">Create</button>
     </div>
 
 </form>

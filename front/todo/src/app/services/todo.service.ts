@@ -34,4 +34,8 @@ export class TodoService {
     const url = `${this.url}/${todo.id}`;
     return this.http.put<Todo>(url, todo);
   }
+
+  createTodo(todo: Todo): Observable<Todo> {
+    return this.http.post<Todo>(this.url, todo);
+  }
 }

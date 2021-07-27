@@ -16,7 +16,6 @@ public class DBService {
 	@Autowired
 	private TodoRepository todoRepository;
 	
-
 	public void startDataBase() throws ParseException {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Todo todo1 = new Todo(null, "Study", "Study Spring Boot 2",
