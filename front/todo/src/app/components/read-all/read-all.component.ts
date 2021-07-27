@@ -9,6 +9,7 @@ import { TodoService } from "../../services/todo.service";
 })
 export class ReadAllComponent implements OnInit {
   list: Todo[] = [];
+  listFinished: Todo[] = [];
   finishedTodos = 0;
 
   constructor(private service: TodoService) {}
@@ -19,16 +20,14 @@ export class ReadAllComponent implements OnInit {
 
   findAll(): void {
     this.service.findAll().subscribe((response) => {
-      this.list = response;
-      this.countFinishedTodos();
+      response.map((todo) => {
+        if (todo.finished) {
+          this.listFinished.push(todo);
+        } else {
+          this.list.push(todo);
+        }
+      });
+      this.finishedTodos = this.listFinished.length;
     });
-  }
-
-  countFinishedTodos(): void {
-    for (let todo of this.list) {
-      if (todo.finished) {
-        this.finishedTodos++;
-      }
-    }
   }
 }
