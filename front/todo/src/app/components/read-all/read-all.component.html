@@ -3,12 +3,12 @@
 <div class="container">
     <button class="new-todo mat-elevation-z8" mat-stroked-button color="primary">New TO-DO</button>
 
-    <div class="content">
+    <div class="content" *ngFor="let item of list">
         <mat-card class="mat-elevation-z8">
-            <p>Date to Finish: </p>
+            <p>Date to Finish: {{item.dateToFinish}} </p>
             <mat-card-header>
-                <mat-card-title>Shiba Inu</mat-card-title>
-                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                <mat-card-title>{{item.title}}</mat-card-title>
+                <mat-card-subtitle>{{item.description}}</mat-card-subtitle>
             </mat-card-header>
 
             <div class="actions">
