@@ -43,4 +43,15 @@ export class ReadAllComponent implements OnInit {
   showFinished(): void {
     this.router.navigate(["finished"]);
   }
+
+  setFinishedTodo(todoToEdit: Todo): void {
+    todoToEdit.finished = true;
+    this.service.updateTodo(todoToEdit).subscribe(() => {
+      this.service.message(
+        `Task with id ${todoToEdit.id} set as finished! Congratulations!`
+      );
+      this.list = this.list.filter((todo) => todo.id !== todoToEdit.id);
+      this.finishedTodos++;
+    });
+  }
 }

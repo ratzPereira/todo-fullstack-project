@@ -29,4 +29,9 @@ export class TodoService {
       duration: 4000,
     });
   }
+
+  updateTodo(todo: Todo): Observable<Todo> {
+    const url = `${this.url}/${todo.id}`;
+    return this.http.put<Todo>(url, todo);
+  }
 }
