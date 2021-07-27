@@ -7,7 +7,7 @@
             Todos completed
         </button>
     </div>
-    <button class="new-todo mat-elevation-z8" mat-stroked-button color="primary">New TO-DO</button>
+    <button class="new-todo mat-elevation-z8" mat-stroked-button color="primary" (click)="newTodoHandler()">New TO-DO</button>
 
     <div class="content" *ngFor="let item of list">
         <mat-card class="mat-elevation-z8">

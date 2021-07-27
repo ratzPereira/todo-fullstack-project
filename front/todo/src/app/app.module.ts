@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-
+import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/header/header.component";
@@ -17,6 +17,10 @@ import { ReadAllComponent } from "./components/read-all/read-all.component";
 import { HttpClientModule } from "@angular/common/http";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { FinishedTodosComponent } from "./components/finished-todos/finished-todos.component";
+import { CreateTodoComponent } from "./components/create-todo/create-todo.component";
+import { MatInputModule } from "@angular/material/input";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -25,6 +29,7 @@ import { FinishedTodosComponent } from "./components/finished-todos/finished-tod
     FooterComponent,
     ReadAllComponent,
     FinishedTodosComponent,
+    CreateTodoComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +42,10 @@ import { FinishedTodosComponent } from "./components/finished-todos/finished-tod
     HttpClientModule,
     MatBadgeModule,
     MatSnackBarModule,
+    FormsModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -54,4 +54,8 @@ export class ReadAllComponent implements OnInit {
       this.finishedTodos++;
     });
   }
+
+  newTodoHandler(): void {
+    this.router.navigate(["create"]);
+  }
 }
