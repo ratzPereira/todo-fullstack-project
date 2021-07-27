@@ -30,6 +30,7 @@ public class DBService {
 				simpleDateFormat.parse("25/04/2022"), true);
 		Todo todo5 = new Todo(null, "Eat", "Dinner",
 				simpleDateFormat.parse("05/04/2021"), false);
+		
 
 		todoRepository.saveAll(Arrays.asList(todo1,todo2,todo3,todo4,todo5,todo6));
 	}
