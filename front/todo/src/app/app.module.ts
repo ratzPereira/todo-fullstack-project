@@ -15,6 +15,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { FooterComponent } from "./components/footer/footer.component";
 import { ReadAllComponent } from "./components/read-all/read-all.component";
 import { HttpClientModule } from "@angular/common/http";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { HttpClientModule } from "@angular/common/http";
     MatIconModule,
     HttpClientModule,
     MatBadgeModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
