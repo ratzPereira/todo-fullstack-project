@@ -21,6 +21,7 @@ import { CreateTodoComponent } from "./components/create-todo/create-todo.compon
 import { MatInputModule } from "@angular/material/input";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
+import { UpdateTodoComponent } from './components/update-todo/update-todo.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatNativeDateModule } from "@angular/material/core";
     ReadAllComponent,
     FinishedTodosComponent,
     CreateTodoComponent,
+    UpdateTodoComponent,
   ],
   imports: [
     BrowserModule,

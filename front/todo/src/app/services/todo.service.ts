@@ -17,6 +17,11 @@ export class TodoService {
     return this.http.get<Todo[]>(this.url);
   }
 
+  findById(id: any): Observable<Todo> {
+    const url = `${this.url}/${id}`;
+    return this.http.get<Todo>(url);
+  }
+
   deleteTodo(id: any): Observable<void> {
     const url = `${this.url}/${id}`;
     return this.http.delete<void>(url);

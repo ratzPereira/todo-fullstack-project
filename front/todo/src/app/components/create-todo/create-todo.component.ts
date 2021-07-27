@@ -25,6 +25,10 @@ export class CreateTodoComponent implements OnInit {
   }
 
   createTodoHandler() {
+    if (this.todo.description.length <= 10 || this.todo.title.length <= 5) {
+      this.service.message("Please insert valid data");
+      return;
+    }
     this.dateFormatter();
     this.service.createTodo(this.todo).subscribe(
       (response) => {
