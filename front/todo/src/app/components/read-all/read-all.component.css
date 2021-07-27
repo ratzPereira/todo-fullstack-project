@@ -4,6 +4,18 @@
 
 }
 
+.badge{
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.badge button {
+    margin: auto;
+    width: 100%;
+}
+
 .content{
     width: 100%;
 }
@@ -32,3 +44,4 @@ p{
 .actions button {
     margin: .5rem;
 }
+

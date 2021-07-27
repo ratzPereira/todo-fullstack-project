@@ -1,12 +1,14 @@
 package com.ratz.todo.domain;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Todo implements Serializable {
@@ -19,14 +21,16 @@ public class Todo implements Serializable {
 	private Integer id;
 	private String title;
 	private String description;
-	private LocalDateTime dateToFinish;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	private Date dateToFinish;
 	private Boolean finished = false;
 	
 	public Todo() {
 		super();
 	}
 
-	public Todo(Integer id, String title, String description, LocalDateTime dateToFinish, Boolean finished) {
+	public Todo(Integer id, String title, String description, Date dateToFinish, Boolean finished) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -59,11 +63,11 @@ public class Todo implements Serializable {
 		this.description = description;
 	}
 
-	public LocalDateTime getDateToFinish() {
+	public Date getDateToFinish() {
 		return dateToFinish;
 	}
 
-	public void setDateToFinish(LocalDateTime dateToFinish) {
+	public void setDateToFinish(Date dateToFinish) {
 		this.dateToFinish = dateToFinish;
 	}
 
